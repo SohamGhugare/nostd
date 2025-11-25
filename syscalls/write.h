@@ -2,7 +2,6 @@
 #define _WRITE_H_
 
 #define SYS_write 64
-#define SYS_exit 93
 
 typedef unsigned long long int uint64;
 
