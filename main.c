@@ -1,5 +1,5 @@
-#include "syscalls/write.h"
-#include "syscalls/exit.h"
+#include "syscall/write.h"
+#include "syscall/exit.h"
 
 void _start() {
     char* buf = "Hello World\n";
