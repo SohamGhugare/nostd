@@ -1,22 +1,22 @@
-void _start() {
-    char* buf = "Hello World\n";
-    
+#include "write.h"
+
+int write(int fd, const char *buf, int count) {
+    uint64 ret;
+
+    // write syscall
     asm volatile (
-        "mov x0, #1\n"
-        "mov x1, %0\n"
-        "mov x2, #12\n"
-        "mov x8, #64\n"
+        "mov x0, %2\n"
+        "mov x1, %3\n"
+        "mov x2, %4\n"
+        "mov x8, %1\n"
         "svc #0"
-        :
-        : "r"(buf)
+        : "=r" (ret)
+        : "r" ((uint64) SYS_write),
+          "r" ((uint64) fd),
+          "r" ((uint64) buf),
+          "r" ((uint64) count)
         : "x0", "x1", "x2", "x8", "memory"
     );
 
-    asm volatile (
-        "mov x0, #0\n"
-        "mov x8, #93\n"
-        "svc #0"
-        : :
-        : "x0", "x8", "memory"
-    );
+    return (int) ret;
 }
