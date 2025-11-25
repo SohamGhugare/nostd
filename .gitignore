@@ -2,3 +2,10 @@
 
 *.o
 *.out
+
+# Cmake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+build/
