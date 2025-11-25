@@ -6,7 +6,7 @@ add_executable(nostd-dev
     main.c
 
     # write call
-    write.c
+    syscalls/write.c
 )
 
 # nostd compilation

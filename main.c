@@ -1,4 +1,4 @@
-#include "write.h"
+#include "syscalls/write.h"
 
 void _start() {
     char* buf = "Hello World\n";
